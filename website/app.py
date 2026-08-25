@@ -184,7 +184,7 @@ line-height:1.8;
 color:#555;
 ">
 
-We sincerely thank <b>Sudip Limbu</b> and <b>Pustam Limbu</b>
+We sincerely thank <b>Sudip Limbu</b> , <b>Pustam Limbu</b> and <b>Yougesh Tamang</b>
 for their generous support and dedication to the Nepal eFootball community.
 Your contribution helps us organize tournaments, inspire players,
 and continue building a stronger eFootball community in Nepal.
