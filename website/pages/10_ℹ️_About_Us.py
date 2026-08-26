@@ -143,20 +143,12 @@ st.divider()
 # Footer
 # ==========================================
 
-st.markdown("""
-<div style="
-    text-align:center;
-    color:gray;
-    padding:15px;
-">
+st.divider()
 
-🇳🇵 Nepal eFootball Community 🇳🇵
+st.title("🇳🇵 Nepal eFootball Community 🇳🇵")
 
-<br>
+st.markdown("🏆 **Nepal eFootball Hub**")
+st.markdown("🎮 **Play • Compete • Improve**")
 
-<small>
-Nepal eFootball Hub
-</small>
-
-</div>
-""", unsafe_allow_html=True)
+st.caption("❤️ Made for the Nepal eFootball Community")
+st.caption("© 2026 Nepal eFootball Hub")
