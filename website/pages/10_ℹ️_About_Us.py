@@ -110,31 +110,16 @@ st.divider()
 # Developer Message
 # ==========================================
 
-st.markdown("""
-<div style="
-    text-align:center;
-    padding:25px;
-    background:#f8fafc;
-    border-radius:15px;
-">
+st.divider()
 
-<h2>🇳🇵 For the Love of Nepal eFootball</h2>
+st.header("🇳🇵 For the Love of Nepal eFootball")
 
-<p style="
-    font-size:18px;
-    line-height:1.8;
-">
-This platform is built with the goal of giving Nepali eFootball
-players a better place to compete, connect, and grow.
-</p>
+st.write(
+    "This platform is built with the goal of giving Nepali eFootball "
+    "players a better place to compete, connect, and grow."
+)
 
-<h3>
-🎮 Play. Compete. Improve. 🏆
-</h3>
-
-</div>
-""", unsafe_allow_html=True)
-
+st.subheader("🎮 Play • Compete • Improve 🏆")
 
 st.divider()
 
