@@ -1,211 +1,197 @@
 import streamlit as st
-from utils.tournament_manager_postgres import get_active_tournament
 
-st.set_page_config(
-    page_title="Nepal eFootball Hub",
-    page_icon="🏆",
-    layout="wide"
+
+# ==========================================
+# PAGE DEFINITIONS
+# ==========================================
+
+home = st.Page(
+    "pages/1_🏠_Home.py",
+    title="Home",
+    icon="🏠"
 )
 
-# ==========================================
-# Active Tournament
-# ==========================================
+efootball_tournament = st.Page(
+    "pages/2_🏆_EFootball_Tournament.py",
+    title="EFootball Tournament",
+    icon="🏆"
+)
 
-tournament = get_active_tournament()
+top_up = st.Page(
+    "pages/8_💳_Top_Up.py",
+    title="Top Up",
+    icon="💳"
+)
 
-# ==========================================
-# Header
-# ==========================================
+our_winners = st.Page(
+    "pages/9_🏆_Our_Winners.py",
+    title="Our Winners",
+    icon="🏆"
+)
 
-st.markdown("""
-<div style='text-align:center;'>
-
-<h1>🇳🇵 Nepal eFootball Hub 🇳🇵</h1>
-
-<h4 style='color:gray;'>
-Official Tournament Platform
-</h4>
-
-</div>
-""", unsafe_allow_html=True)
-
-st.divider()
-
-# ==========================================
-# Sponsor Section
-# ==========================================
-
-st.markdown("""
-<div style="
-background:linear-gradient(135deg,#0f172a,#1e293b);
-padding:18px;
-border-radius:20px;
-border:2px solid gold;
-text-align:center;
-">
-
-<h2 style="color:gold;">
-🌟 PROUDLY SPONSORED BY 🌟
-</h2>
-
-</div>
-""", unsafe_allow_html=True)
-
-st.write("")
-
-col1, col2,col3 = st.columns(3)
-
-# ==========================================
-# Sudip Limbu
-# ==========================================
-
-with col1:
-
-    st.image(
-        "assets/sudip.jpg",
-        use_container_width=True
-    )
-
-    st.markdown(
-        "<h2 style='text-align:center;'>Sudip Limbu</h2>",
-        unsafe_allow_html=True
-    )
-
-    st.markdown(
-        "<h4 style='text-align:center;color:#f4b400;'>🇳🇵 Nepal | 🇰🇷 South Korea</h4>",
-        unsafe_allow_html=True
-    )
-
-    st.markdown("""
-    <p style="
-        text-align:center;
-        font-size:18px;
-        color:#444;
-        line-height:1.8;
-        padding:10px 20px;
-    ">
-        <i>
-        "Proudly supporting the growth of Nepal eFootball
-        and inspiring Nepali gamers to compete on a bigger stage."
-        </i>
-    </p>
-    """, unsafe_allow_html=True)
-
-# ==========================================
-# Pustam Limbu
-# ==========================================
-
-with col2:
-
-    st.image(
-        "assets/pustam.jpg",
-        use_container_width=True
-    )
-
-    st.markdown(
-        "<h2 style='text-align:center;'>Pustam Limbu</h2>",
-        unsafe_allow_html=True
-    )
-
-    st.markdown(
-        "<h4 style='text-align:center;color:#f4b400;'>🇳🇵 Nepal | 🇰🇷 South Korea</h4>",
-        unsafe_allow_html=True
-    )
-
-    st.markdown("""
-    <p style="
-        text-align:center;
-        font-size:18px;
-        color:#444;
-        line-height:1.8;
-        padding:10px 20px;
-    ">
-        <i>
-        "Helping build a stronger Nepal eFootball community
-        by supporting tournaments and future generations of players."
-        </i>
-    </p>
-    """, unsafe_allow_html=True)
+about_us = st.Page(
+    "pages/10_ℹ️_About_Us.py",
+    title="About Us",
+    icon="ℹ️"
+)
 
 
 # ==========================================
-# Yougesh Tamang
+# TOURNAMENT SUB-PAGES
 # ==========================================
 
-with col3:
+group_draw = st.Page(
+    "pages/3_🎲_Group_Draw.py",
+    title="Group Draw",
+    icon="🎲"
+)
 
-    st.image(
-        "assets/yougesh.jpg",
-        use_container_width=True
-    )
+fixtures = st.Page(
+    "pages/4_⚽_Fixtures.py",
+    title="Fixtures",
+    icon="⚽"
+)
 
-    st.markdown(
-        "<h2 style='text-align:center;'>Yougesh Tamang</h2>",
-        unsafe_allow_html=True
-    )
+standings = st.Page(
+    "pages/5_🏆_Standings.py",
+    title="Standings",
+    icon="🏆"
+)
 
-    st.markdown(
-        "<h4 style='text-align:center;color:#f4b400;'>🇳🇵 Nepal </h4>",
-        unsafe_allow_html=True
-    )
+qualified_teams = st.Page(
+    "pages/6_✅_Qualified_Teams.py",
+    title="Qualified Teams",
+    icon="✅"
+)
 
-    st.markdown("""
-    <p style="
-        text-align:center;
-        font-size:18px;
-        color:#444;
-        line-height:1.8;
-        padding:10px 20px;
-    ">
-        <i>
-        "Building a stronger Nepal eFootball community
-        by supporting tournaments and inspiring the next generation of players."
-        </i>
-    </p>
-    """, unsafe_allow_html=True)
+knockout = st.Page(
+    "pages/7_🏟️_Knockout.py",
+    title="Knockout",
+    icon="🏟️"
+)
+
+top_scorers = st.Page(
+    "pages/🏅_Top_Scorers.py",
+    title="Top Scorers",
+    icon="🏅"
+)
+
 
 # ==========================================
-# Thank You Sponsors
+# REGISTER ALL PAGES
+# ==========================================
+
+pg = st.navigation(
+    [
+        home,
+        efootball_tournament,
+        top_up,
+        our_winners,
+        about_us,
+
+        # Hidden from sidebar
+        group_draw,
+        fixtures,
+        standings,
+        qualified_teams,
+        knockout,
+        top_scorers,
+    ],
+    position="hidden"
+)
+
+
+# ==========================================
+# SIDEBAR CSS
 # ==========================================
 
 st.markdown("""
-<div style="
-text-align:center;
-padding:20px;
-">
+<style>
 
-<h2 style="color:#FFD700;">
-🙏 Thank You to Our Sponsors
-</h2>
+/* Remove Streamlit's large sidebar header area */
+[data-testid="stSidebarHeader"] {
+    display: none !important;
+}
 
-<p style="
-font-size:18px;
-line-height:1.8;
-color:#555;
-">
+/* Remove unnecessary top spacing */
+[data-testid="stSidebarContent"] {
+    padding-top: 0 !important;
+}
 
-We sincerely thank <b>Sudip Limbu</b> , <b>Pustam Limbu</b> and <b>Yougesh Tamang</b>
-for their generous support and dedication to the Nepal eFootball community.
-Your contribution helps us organize tournaments, inspire players,
-and continue building a stronger eFootball community in Nepal.
+/* Remove extra spacing from sidebar content */
+[data-testid="stSidebarUserContent"] {
+    padding-top: 0 !important;
+}
 
-</p>
+/* Make sidebar content start at the top */
+[data-testid="stSidebar"] > div:first-child {
+    padding-top: 0 !important;
+}
 
-<h3 style="color:#1565C0;">
-🇳🇵 Together, let's grow Nepal eFootball.
-</h3>
-
-</div>
+</style>
 """, unsafe_allow_html=True)
 
-st.divider()
 
-st.markdown("""
-<div style="text-align:center;color:gray;">
+# ==========================================
+# CUSTOM SIDEBAR
+# ==========================================
 
-© 2026 Nepal eFootball Hub
+with st.sidebar:
 
-Made with ❤️ for the Nepal eFootball Community
+    # Website name
+    st.markdown(
+        """
+        <div style="
+            font-size:20px;
+            font-weight:700;
+            padding:15px 5px 12px 5px;
+            margin-bottom:8px;
+        ">
+            🇳🇵 Nepal eFootball Hub
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
-</div>
-""", unsafe_allow_html=True)
+    st.divider()
+
+    # Home
+    st.page_link(
+        home,
+        label="Home",
+        icon="🏠"
+    )
+
+    # EFootball Tournament
+    st.page_link(
+        efootball_tournament,
+        label="EFootball Tournament",
+        icon="🏆"
+    )
+
+    # Top Up
+    st.page_link(
+        top_up,
+        label="Top Up",
+        icon="💳"
+    )
+
+    # Our Winners
+    st.page_link(
+        our_winners,
+        label="Our Winners",
+        icon="🏆"
+    )
+    # About Us
+    st.page_link(
+    about_us,
+    label="About Us",
+    icon="ℹ️"
+)
+
+
+# ==========================================
+# RUN PAGE
+# ==========================================
+
+pg.run()
